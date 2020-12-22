@@ -24,4 +24,8 @@ python spatial_transformer_network_demo.py
 ```
 
 
-
+### Experiment Results
+|                        | Vanilla FC model trained on original MNIST | Vanilla FC model trained trained on both original MNIST and distorted MNIST | Vanilla FC model + Spatial Transfomer trained on both original MNIST and distorted MNIST |
+|------------------------|--------------------------------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| Original MNIST         | 0.9783                                     | 0.9767                                                                      | 0.9867                                                                                   |
+| Affine-distorted MNIST | 0.5180                                     | 0.7569                                                                      | 0.8928                                                                                   |
