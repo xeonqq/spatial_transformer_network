@@ -19,6 +19,7 @@ Launch the bash
 ```
 docker run -it -v {PATH_TO_REPO}/:/tf/stn -p 8888:8888 -p 0.0.0.0:6006:6006 tfqq:latest /bin/bash 
 cd tf/stn
+python prepare_distorted_dataset.py
 python spatial_transformer_network_demo.py
 ```
 

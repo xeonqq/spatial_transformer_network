@@ -5,6 +5,7 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Input,
 from spatial_transformer import spatial_transform_input
 from utils import draw_samples
 
+
 def create_localization_head(inputs):
     x = Conv2D(6, (5, 5), padding="valid", activation="relu")(inputs)
     x = MaxPooling2D((2, 2), strides=2)(x)
@@ -65,7 +66,6 @@ def get_mnist_dataset():
     return x_train, y_train, x_test, y_test
 
 
-
 if __name__ == "__main__":
     input_shape = (28, 28, 1)
 
@@ -97,11 +97,10 @@ if __name__ == "__main__":
     print("Evaluating [original_mnist]:")
     stn.evaluate(x_test, y_test)
 
-    
     test_data = x_test_aug[:30]
     label = y_test[:30]
-    draw_samples(test_data, "distorted_mnist",save_fig=True)
-    
+    draw_samples(test_data, "distorted_mnist", save_fig=True)
+
     predicted_transforms = loc_head.predict(test_data[:40])
     transformed_inputs = spatial_transform_input(test_data, predicted_transforms)
-    draw_samples(transformed_inputs, "stn_corrected_mnist",save_fig=True)
+    draw_samples(transformed_inputs, "stn_corrected_mnist", save_fig=True)
