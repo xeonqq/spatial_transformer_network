@@ -41,9 +41,9 @@ Trained Models:
  * Vanilla NN 2: same NN network but trained with original MNIST and Affine-distorted MNIST together
  * Spatial Transformer Netork: vallia NN with spatial transformer trained with original MNIST and Affine-distorted MNIST together
 
-In the table below it shows the validation accuracy for each train model:
+In the table below it shows the validation accuracy for each train model given different evaluation sets:
 
-|                        | Vanilla NN 1 | Vanilla NN 2 | Spatial Transfomer Netork |
-|------------------------|--------------|--------------|---------------------------|
-| Original MNIST         | 0.9783       | 0.9767       | 0.9867                    |
-| Affine-distorted MNIST | 0.5180       | 0.7569       | 0.8928                    |
+|                        | Vanilla NN 1 | Vanilla NN 2 | Spatial Transfomer Network |
+|------------------------|--------------|--------------|----------------------------|
+| Original MNIST         | 0.9783       | 0.9767       | 0.9867                     |
+| Affine-distorted MNIST | 0.5180       | 0.7569       | 0.8928                     |
