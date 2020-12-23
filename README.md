@@ -18,7 +18,7 @@ Using [cluttered MNIST dataset](https://github.com/daviddao/spatial-transformer-
 
 ### Run the training pipeline in docker
 ```bash
-docker build -t tfqq
+docker build -t tfqq .
 ```
 
 Launch the notebook

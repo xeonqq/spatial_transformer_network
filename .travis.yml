@@ -1,7 +1,10 @@
 language: python
+services:
+    - docker
 # command to install dependencies
-install:
-  - docker build -t tfqq
+before_install:
+  - docker build -t tfqq .
+  - docker run -v "$PWD":/tf/stn -p 8888:8888 tfqq:latest /bin/bash -c "cd /tf/stn; python test.py"  
 # command to run tests
 script:
-  - docker run -v "$PWD":/tf/stn -p 8888:8888 tfqq:latest /bin/bash -c "cd /tf/stn;python test.py"  
+  python test.py
