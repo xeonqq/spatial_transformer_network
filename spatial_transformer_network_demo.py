@@ -66,10 +66,11 @@ def get_mnist_dataset():
     return x_train, y_train, x_test, y_test
 
 
-if __name__ == "__main__":
+def main(training):
     input_shape = (28, 28, 1)
 
-    distorted_mnist = pickle.load(open("distorted_mnist.p", "rb"))
+    with open("distorted_mnist.p", "rb") as f:
+        distorted_mnist = pickle.load(f)
     x_train_aug = distorted_mnist["x_train_distorted"]
     x_test_aug = distorted_mnist["x_test_distorted"]
 
@@ -81,8 +82,7 @@ if __name__ == "__main__":
     loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
     stn.compile(optimizer="adam", loss=loss_fn, metrics=["accuracy"])
 
-    TRAIN = True
-    if TRAIN:
+    if training:
         train(stn, x, y)
         stn.save_weights("./stn_weights")
         loc_head.save_weights("./loc_head")
@@ -93,7 +93,7 @@ if __name__ == "__main__":
         mnist_model.load_weights("./mnist_model")
 
     print("Evaluating [distorted_mnist]:")
-    stn.evaluate(x_test_aug, y_test)
+    eval_result = stn.evaluate(x_test_aug, y_test)
     print("Evaluating [original_mnist]:")
     stn.evaluate(x_test, y_test)
 
@@ -104,3 +104,8 @@ if __name__ == "__main__":
     predicted_transforms = loc_head.predict(test_data[:40])
     transformed_inputs = spatial_transform_input(test_data, predicted_transforms)
     draw_samples(transformed_inputs, "stn_corrected_mnist", save_fig=True)
+    return eval_result
+
+
+if __name__ == "__main__":
+    main(True)
