@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/xeonqq/spatial_transformer_network.svg?branch=master)](https://travis-ci.com/xeonqq/spatial_transformer_network)
+
 ## Spatial Transformer Netork (STN) implemented with Tensorflow 2 Keras
   ![](pics/stn.png)
 

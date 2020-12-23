@@ -4,7 +4,6 @@ services:
 # command to install dependencies
 before_install:
   - docker build -t tfqq .
-  - docker run -v "$PWD":/tf/stn -p 8888:8888 tfqq:latest /bin/bash -c "cd /tf/stn; python test.py"  
 # command to run tests
 script:
-  python test.py
+  - docker run -v "$PWD":/tf/stn -p 8888:8888 tfqq:latest /bin/bash -c "cd /tf/stn; python test.py"  
