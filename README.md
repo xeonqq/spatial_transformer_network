@@ -40,8 +40,8 @@ python spatial_transformer_network_demo.py
 ### Experiment Results
 Trained Models:
  * Vanilla NN 1: neural network with only simple fully connected layers, trained with original MNIST dataset
- * Vanilla NN 2: same NN network but trained with original MNIST and Affine-distorted MNIST together
- * Spatial Transformer Netork: vallia NN with spatial transformer trained with original MNIST and Affine-distorted MNIST together
+ * Vanilla NN 2: same NN network but trained with original MNIST and Affine-distorted MNIST together (or cluttered MNIST)
+ * Spatial Transformer Netork: vallia NN with spatial transformer trained with original MNIST and Affine-distorted MNIST together (or cluttered MNIST)
 
 In the table below it shows the validation accuracy for each train model given different evaluation sets:
 
@@ -49,3 +49,4 @@ In the table below it shows the validation accuracy for each train model given d
 |------------------------|--------------|--------------|----------------------------|
 | Original MNIST         | 0.9783       | 0.9767       | 0.9867                     |
 | Affine-distorted MNIST | 0.5180       | 0.7569       | 0.8928                     |
+| Cluttered MNIST        | 0.1750       | 0.7520       | 0.9140                     | 
